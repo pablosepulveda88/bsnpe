@@ -20,7 +20,8 @@ public class Empresa extends Base{
     private Integer cuil;
 
 
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "empresa", fetch = FetchType.LAZY)
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @JoinColumn(name = "empresa_id")
     @Builder.Default
     private Set<Sucursal> sucursales = new HashSet<>();
 

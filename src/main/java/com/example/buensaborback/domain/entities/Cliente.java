@@ -36,8 +36,7 @@ public class Cliente extends Base{
             inverseJoinColumns = @JoinColumn(name = "domicilio_id"))
     @Builder.Default
     private Set<Domicilio> domicilios = new HashSet<>();
-    
+
     @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "cliente")
     private Imagen imagen;
-
 }

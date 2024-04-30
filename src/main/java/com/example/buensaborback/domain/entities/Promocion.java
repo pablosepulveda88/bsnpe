@@ -30,7 +30,6 @@ public class Promocion extends Base {
     @ManyToMany(mappedBy = "promociones")
     private Set<Sucursal> sucursales = new HashSet<>();
 
-
     @ManyToMany
     @JoinTable(name = "promocion_articulo",
             joinColumns = @JoinColumn(name = "promocion_id"),
@@ -38,7 +37,8 @@ public class Promocion extends Base {
     @Builder.Default
     private Set<Articulo> articulos= new HashSet<>();
 
-    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "promocion")
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @JoinColumn(name = "promocion_id")
     @Builder.Default
     private Set<Imagen> imagenes= new HashSet<>();
 

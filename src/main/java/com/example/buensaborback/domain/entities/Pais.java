@@ -22,7 +22,4 @@ public class Pais extends Base{
 
     private String nombre;
 
-
-    @OneToMany(mappedBy = "pais")
-    Set<Provincia> provincias = new HashSet<>();
 }

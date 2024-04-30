@@ -135,8 +135,6 @@ public class BuenSaborBackApplication {
                     .razonSocial("Venta de Alimentos")
                     .build();
             empresaBrown.getSucursales().add(sucursalChacras);
-
-            sucursalChacras.setEmpresa(empresaBrown);
             domicilioViamonte.setSucursal(sucursalChacras);
 
             empresaRepository.save(empresaBrown); //Guarda empresa y como cascada Sucursal y Domicilio
@@ -178,7 +176,6 @@ public class BuenSaborBackApplication {
             categoriaGaseosas.getSucursales().add(sucursalChacras);
             sucursalChacras.getCategorias().add(categoriaGaseosas);
 
-            imagenCoca.setArticulo(cocaCola);
 
             categoriaRepository.save(categoriaBebidas); //Guarda Categoria y como cascada guarda SubCategoria, Articulo, UnidadMedida, Imagen
 
@@ -218,7 +215,6 @@ public class BuenSaborBackApplication {
                     .tipoPromocion(TipoPromocion.Promocion)
                     .build();
             promocionDeGaseosa.getArticulos().add(vasoGaseosa);
-            imagenVasoGaseosa.setArticulo(vasoGaseosa);
 
             articuloManufacturadoRepository.save(vasoGaseosa); //Guarda ArticuloManufacturado y como cascada guarda ArticuloManufacturadoDetalle, Imagen, Promoción
 
@@ -241,10 +237,9 @@ public class BuenSaborBackApplication {
             //----------------------------------------------------------------------------------------
 
 			//Agregar imágen de cliente
-			Imagen imagenUsuario = Imagen.builder()
+			Imagen imagenCliente = Imagen.builder()
                     .url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQsa2xSPPay4GD7E3cthBMCcvPMADEjFufUWQ&s")
                     .build();
-
 
 
 			//agregar domicilios de cliente
@@ -262,7 +257,7 @@ public class BuenSaborBackApplication {
                     .nombre("Vanina")
                     .email("vani3@gmail.com")
                     .apellido("Luna")
-                    .imagen(imagenUsuario)
+                    .imagen(imagenCliente)
                     .telefono("2614523698")
                     .usuario(usuario1)
                     .fechaNacimiento(LocalDate.of(1991, 8, 15))
@@ -270,7 +265,7 @@ public class BuenSaborBackApplication {
 
             cliente1.getDomicilios().add(domicilioCliente1);
 
-            imagenUsuario.setCliente(cliente1);
+            imagenCliente.setCliente(cliente1);
 
             clienteRepository.save(cliente1); //Guardar cliente y como cascada Guarda Imagen y Usuario
 
@@ -321,8 +316,6 @@ public class BuenSaborBackApplication {
 
 			pedido.getDetallePedidos().add(detallePedido1);
 			pedido.getDetallePedidos().add(detallePedido2);
-            detallePedido1.setPedido(pedido);
-            detallePedido2.setPedido(pedido);
             factura.setPedido(pedido);
 
 			pedidoRepository.save(pedido); //Guardar pedido

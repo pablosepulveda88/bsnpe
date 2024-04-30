@@ -21,9 +21,6 @@ public class Provincia extends Base{
 
     private String nombre;
 
-    @OneToMany(mappedBy = "provincia", fetch = FetchType.LAZY)
-    Set<Localidad> localidads = new HashSet<>();
-
     @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     @JoinColumn(name = "pais_id")
     private Pais pais;

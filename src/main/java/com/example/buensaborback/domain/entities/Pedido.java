@@ -44,10 +44,8 @@ public class Pedido extends Base{
     @JoinColumn(name = "cliente_id")
     private Cliente cliente;
 
-
-    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "pedido")
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @JoinColumn(name = "pedido_id")
     @Builder.Default
     private Set<DetallePedido> detallePedidos = new HashSet<>();
-
-
 }

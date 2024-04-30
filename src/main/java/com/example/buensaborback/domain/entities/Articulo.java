@@ -25,7 +25,8 @@ public abstract class Articulo {
     protected String denominacion;
     protected Double precioVenta;
 
-    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "articulo")
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @JoinColumn(name = "articulo_id")
     @Builder.Default
     protected Set<Imagen> imagenes = new HashSet<Imagen>();
 
@@ -34,7 +35,6 @@ public abstract class Articulo {
     protected UnidadMedida unidadMedida;
 
     @ManyToMany(mappedBy = "articulos")
-    //SE AGREGA EL BUILDER.DEFAULT PARA QUE BUILDER NO SOBREESCRIBA LA INICIALIZACION DE LA LISTA
     @Builder.Default
     protected Set<Promocion> estaEnPromociones = new HashSet<>();
 

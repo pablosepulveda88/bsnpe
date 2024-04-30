@@ -21,8 +21,4 @@ public class ArticuloInsumo extends Articulo {
     private Integer stockMaximo;
     private Boolean esParaElaborar;
 
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "articuloInsumo", fetch = FetchType.LAZY)
-    private Set<ArticuloManufacturadoDetalle> articuloManufacturadoDetalles = new HashSet<>();
-
-
 }

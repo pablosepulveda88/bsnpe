@@ -17,7 +17,4 @@ public class ArticuloManufacturadoDetalle extends Base {
     @JoinColumn(name = "articuloInsumo_id")
     private ArticuloInsumo articuloInsumo;
 
-    @ManyToOne
-    @JoinColumn(name = "articuloManufacturado_id")
-    private ArticuloManufacturado articuloManufacturado;
 }
