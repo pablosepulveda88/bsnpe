@@ -20,7 +20,5 @@ public class UnidadMedida extends Base{
 
     private String denominacion;
 
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "unidadMedida", fetch = FetchType.LAZY)
-    Set<Articulo> articulos = new HashSet<>();
 
 }

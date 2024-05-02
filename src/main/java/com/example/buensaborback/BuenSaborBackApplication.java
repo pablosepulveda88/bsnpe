@@ -144,6 +144,7 @@ public class BuenSaborBackApplication {
             UnidadMedida unidadMedidaLitros = UnidadMedida.builder()
                     .denominacion("Litros")
                     .build();
+
             unidadMedidaRepository.save(unidadMedidaLitros);
 
             ArticuloInsumo cocaCola = ArticuloInsumo.builder()
@@ -196,7 +197,6 @@ public class BuenSaborBackApplication {
                     .build();
 
             vasoGaseosa.getArticuloManufacturadoDetalles().add(detalleVasoGaseosa);
-            vasoGaseosa.setCategoria(categoriaGaseosas);
 
             categoriaBebidas.getArticulos().add(cocaCola);
 
@@ -215,6 +215,11 @@ public class BuenSaborBackApplication {
                     .tipoPromocion(TipoPromocion.Promocion)
                     .build();
             promocionDeGaseosa.getArticulos().add(vasoGaseosa);
+
+            vasoGaseosa.getEstaEnPromociones().add(promocionDeGaseosa);
+
+            promocionDeGaseosa.getImagenes().add(imagenVasoGaseosa);
+
 
             articuloManufacturadoRepository.save(vasoGaseosa); //Guarda ArticuloManufacturado y como cascada guarda ArticuloManufacturadoDetalle, Imagen, Promoción
 

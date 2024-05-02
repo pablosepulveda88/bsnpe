@@ -38,11 +38,4 @@ public abstract class Articulo {
     @Builder.Default
     protected Set<Promocion> estaEnPromociones = new HashSet<>();
 
-    @ManyToOne
-    @JoinColumn(name = "categoria_id")
-    private Categoria categoria;
-
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "articulo", fetch = FetchType.LAZY)
-    private Set<DetallePedido> detallesPedidos = new HashSet<>();
-
 }
